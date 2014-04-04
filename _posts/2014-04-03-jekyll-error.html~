@@ -25,6 +25,8 @@ jekyll build
 	from /usr/local/bin/jekyll:19:in `load'
 	from /usr/local/bin/jekyll:19
 </pre>
-<p><a href="http://stackoverflow.com/questions/19788258/error-when-running-jekyll-new-command">网上</a>查到:运行sudo gem install json可以解决</p>
+<p>
+<a href="http://stackoverflow.com/questions/19788258/error-when-running-jekyll-new-command">网上</a>查到:运行sudo gem install json可以解决
+</p>
 <p>{{ page.date | date_to_string }}</p>
 

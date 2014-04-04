@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: it's midnight
 ---
 <h2>{{ page.title }}</h2>
