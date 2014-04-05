@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link type="text/css" href="/css/style.css" rel="stylesheet"/>
+		<title>jekyll不同子模板用不同css的问题</title>
+	</head>
+	<body>
+		<header>
+			<img class="header-image" src="/images/header.jpg"></img>
+		</header>
+	　　	<h2 class="post-title">jekyll不同子模板用不同css的问题</h2>
+<article class="post-content">
+	<p>
+在jekyll中，想要在不同的子模板下引用不同的css，比较困难，因为jekyll的模板页只支持一个content，也就是页面（子模板）只能填充模板页的<b>一个位置</b>的内容。
+</p>
+<p>
+尝试：在子模板中定义一个表示自己的变量，在父模板中判断该变量来加载不同的css文件。没有用这种方法，因为把具体逻辑放在公用模块中并不合理。
+</p>
+<p>
+最终，还是决定全站只用一个css，在选择器上做好区分，不至于相互影响。
+</p>
+
+
+
+
+</article>
+<div class="post-footer">
+	<a class="link-to-homepage" href="/" >首页</a>
+	<p class="post-date">05 Apr 2014</p>
+</div> 
+		<footer>
+		
+		</footer>
+	</body>
+</html>

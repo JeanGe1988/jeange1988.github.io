@@ -1,3 +1,4 @@
+/* Global */
 body{
 	display:block;
 	margin:0px;
@@ -5,4 +6,26 @@ body{
 
 .header-image{
 	width:100%;
+	max-height:300px;
+	overflow:hidden;
+}
+
+
+/* Post common style */
+.post-title{
+	margin-left:25px;
+}
+.post-content{
+	margin:25px 20px 25px;
+}
+.post-date, .link-to-homepage{
+	float:right;
+	margin-right:25px;
+	clear:right;
+}
+
+
+/* Post content style */
+pre{
+	overflow-wrap:break-word;
 }
