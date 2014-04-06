@@ -16,7 +16,10 @@ body{
 	margin-left:25px;
 }
 .post-content{
-	margin:25px 20px 25px;
+	margin:25px 20px 25px 35px;
+}
+.post-content img{
+	max-width:100%;
 }
 .post-date, .link-to-homepage{
 	float:right;
