@@ -10,6 +10,39 @@ body{
 	overflow:hidden;
 }
 
+/* Index style */
+.post-list{
+	list-style-type:none;
+}
+.post-list-date{
+	float:right;
+	font-style: italic;
+	font-size: 0.9em;
+}
+.post-list li{
+	margin-top:5px;
+	margin-bottom:5px;
+	color:black;
+}
+.post-list a{
+	color:black;
+	text-shadow:3px 3px 3px gray;
+}
+.post-list a:hover{
+	position: relative;
+	left: 1px;
+	top: 1px;
+	text-shadow: 2px 2px 3px gray;
+}
+.post-list a:focus{
+	position: relative;
+	left: 2px;
+	top: 2px;
+	text-shadow: 1px 1px 3px gray;
+}
+.post-list a:visited{
+	color:gray;
+}
 
 /* Post common style */
 .post-title{
