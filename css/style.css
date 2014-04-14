@@ -73,6 +73,9 @@ body{
 	margin-right:25px;
 	clear:right;
 }
+#disqus_thread{
+	margin:25px 5% 25px 5%;
+}
 
 
 /* Post content style */
