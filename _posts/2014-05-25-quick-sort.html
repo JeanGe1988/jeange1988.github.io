@@ -1,0 +1,151 @@
+---
+layout: post
+title: Quick Sort
+---
+<style>
+h3{
+	margin-top: 60px;
+	border-top: solid gray;
+	padding-top: 20px;
+}
+</style>
+<h3>Quick Sort</h3>
+<style>
+.number-input{
+	width:20px;
+}
+</style>
+<div id="stage-area">
+	<div id="number-area">
+		<input type="text" class="number-input"/>
+		<input type="text" class="number-input"/>
+		<input type="text" class="number-input"/>
+		<input type="text" class="number-input"/>
+		<input type="text" class="number-input"/>
+		<input type="text" class="number-input"/>
+		<input type="text" class="number-input"/>
+	</div>
+	<input id="button-start-show" type="button" value="开始"/>
+</div>
+
+<script>
+	(function(){
+		var quickSort = function(arr,campfunc,left,right){
+			if(arguments.length <2){
+				campfunc = quickSort.comp;
+			}
+			if(arguments.length != 4){
+				left = 0;
+				right = arr.length -1;
+			}
+
+			if(left > right){
+				return ;
+			}
+
+			var index = quickSort.partition(arr,campfunc,left,right);
+			quickSort(arr,campfunc,left,index-1);
+			quickSort(arr,campfunc,index + 1, right);
+		};
+	 
+		quickSort.comp = function (a,b){
+			return a > b;
+		};
+	 
+		quickSort.swap = function (arr,lIndex,rIndex){
+			var temp = arr[lIndex];
+			arr[lIndex] = arr[rIndex];
+			arr[rIndex] = temp;
+		};
+	 
+		quickSort.partition = function (arr,campfunc,left,right){
+			var index = left;
+			var pivot = arr[index];
+			quickSort.swap(arr,index,right);
+	 
+			for(var i = left; i < right; i++){
+				if(campfunc(arr[i],pivot)){
+					quickSort.swap(arr,index++,i);
+				}
+			}
+			quickSort.swap(arr,right,index);
+			return index;
+		};
+	  
+		var arr = [5, 3, 7, 4, 1, 9, 8, 6, 2];
+		quickSort(arr,function(a,b){return a < b;});
+		console.log(arr);
+
+
+
+
+		var btnstart = document.getElementById("button-start-show");
+		var numberArea = document.getElementById("number-area");
+		var numbers;
+		var numberAreaCount = 1;
+		btnstart.addEventListener("click",function(){
+												var duplicateNumberArea =  numberArea.cloneNode(true);
+												duplicateNumberArea.id = duplicateNumberArea.id + '-' + ++numberAreaCount;
+												var stageArea = document.getElementById("stage-area");
+												stageArea.appendChild(duplicateNumberArea);
+												numbers = new Array();
+												for (var i = 0 ; i < numberArea.children.length; i++) {
+													var cellvalue = numberArea.children[i].value;
+													if(cellvalue && !isNaN(cellvalue)){
+														numbers.push(parseFloat(cellvalue));
+														quickSort(numbers,function(a,b){return a < b;});
+
+													}
+												};
+												console.log(numbers);
+											});
+	})();
+	//btnstart
+
+	
+	function quickSort(arr,campfunc,left,right){
+		if(arguments.length <2){
+			campfunc = quickSort.comp;
+		}
+		if(arguments.length != 4){
+			left = 0;
+			right = arr.length -1;
+		}
+
+		if(left > right){
+			return ;
+		}
+
+		var index = quickSort.partition(arr,campfunc,left,right);
+		quickSort(arr,campfunc,left,index-1);
+		quickSort(arr,campfunc,index + 1, right);
+	}
+ 
+	quickSort.comp = function (a,b){
+		return a > b;
+	};
+ 
+	quickSort.swap = function (arr,lIndex,rIndex){
+		var temp = arr[lIndex];
+		arr[lIndex] = arr[rIndex];
+		arr[rIndex] = temp;
+	};
+ 
+	quickSort.partition = function (arr,campfunc,left,right){
+		var index = left;
+		var pivot = arr[index];
+		quickSort.swap(arr,index,right);
+ 
+		for(var i = left; i < right; i++){
+			if(campfunc(arr[i],pivot)){
+				quickSort.swap(arr,index++,i);
+			}
+		}
+		quickSort.swap(arr,right,index);
+		return index;
+	};
+  
+	var arr = [5, 3, 7, 4, 1, 9, 8, 6, 2];
+	quickSort(arr,function(a,b){return a < b;});
+	console.log(arr);
+</script>
